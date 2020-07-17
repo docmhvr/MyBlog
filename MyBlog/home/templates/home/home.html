@@ -1,0 +1,19 @@
+{% extends 'home/base.html' %}
+
+{% block content %}
+
+{% for bg in blog %}
+<div>
+	<h1>{{bg.subject}}</h1>
+	<h5>{{bg.category}} {{bg.datetime}}</h5>
+	{% for bgdt in bg.blogdata_set.all %}
+	<div>
+		<h3>{{bgdt.title}}</h3>
+		<img src="{{bgdt.image.url}}" height="200" width="200">
+		<p>{{bgdt.content}}</p>
+	</div>
+	{% endfor %}
+</div>
+{% endfor %}
+
+{% endblock %}
