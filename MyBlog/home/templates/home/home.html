@@ -1,19 +1,22 @@
 {% extends 'home/base.html' %}
 
 {% block content %}
-
-{% for bg in blog %}
-<div>
-	<h1>{{bg.subject}}</h1>
-	<h5>{{bg.category}} {{bg.datetime}}</h5>
-	{% for bgdt in bg.blogdata_set.all %}
-	<div>
-		<h3>{{bgdt.title}}</h3>
-		<img src="{{bgdt.image.url}}" height="200" width="200">
-		<p>{{bgdt.content}}</p>
+<div class="row row-cols-1 row-cols-md-3">
+	
+	{% for bg in blog %}
+	<div class="col mb-4">
+	<div class="card h-100" style="width: 18rem;">
+		<h3 class="card-title">{{bg.subject}}</h3><h5>{{bg.category}} {{bg.datetime}}</h5>
+		{% for bgdt in bg.blogdata_set.all %}
+		  	<div class="card-body">
+		    	<img src="{{bgdt.image.url}}" class="card-img-top" alt="...">
+		    	<h4>{{bgdt.title}}</h4><p class="card-text">{{bgdt.content}}</p>
+		    	<a href="" class="btn btn-primary">Go to blog</a>
+		  	</div>
+		{% endfor %}
+	</div>
 	</div>
 	{% endfor %}
 </div>
-{% endfor %}
-
 {% endblock %}
+
