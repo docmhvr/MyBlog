@@ -10,3 +10,6 @@ def home(response):
 
 def about(response):
 	return render(response, "home/about.html", {})
+
+def blog(response):
+	return render(response, "home/blog.html", {})

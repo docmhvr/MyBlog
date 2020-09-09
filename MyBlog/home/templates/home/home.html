@@ -1,22 +1,24 @@
 {% extends 'home/base.html' %}
 
 {% block content %}
-<div class="row row-cols-1 row-cols-md-3">
-	
 	{% for bg in blog %}
-	<div class="col mb-4">
-	<div class="card h-100" style="width: 18rem;">
-		<h3 class="card-title">{{bg.subject}}</h3><h5>{{bg.category}} {{bg.datetime}}</h5>
+	<a href="{% url 'blog' %}">
+	<div class="item">
 		{% for bgdt in bg.blogdata_set.all %}
-		  	<div class="card-body">
-		    	<img src="{{bgdt.image.url}}" class="card-img-top" alt="...">
-		    	<h4>{{bgdt.title}}</h4><p class="card-text">{{bgdt.content}}</p>
-		    	<a href="" class="btn btn-primary">Go to blog</a>
-		  	</div>
+		    <img src="{{bgdt.image.url}}">
+		    <h2>{{bgdt.title}}</h2>
+		    <h4>{{bg.subject}}</h4>
+			<h5>{{bg.category}} {{bg.datetime}}</h5>
 		{% endfor %}
 	</div>
-	</div>
+	</a>
 	{% endfor %}
-</div>
 {% endblock %}
 
+{% block left %}
+<p>Left Sidejjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjdklasnfljanflajjdklkajk;ajk;lajf;kadjfk;adfj;kaj</p>
+{% endblock %}
+
+{% block right %}
+<p>Right SidejjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjFLJABFKJSBFJSBFSJBFSJLFBSJLFBLSJFBLSJFBSLJF</p>
+{% endblock %}
